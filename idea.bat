@@ -20,9 +20,9 @@ IF EXIST "%IDEA_JDK%" SET JDK=%IDEA_JDK%
 IF EXIST "%JDK%" GOTO check
 
 SET BITS=64
-SET USER_JDK64_FILE=%USERPROFILE%\.IntelliJIdea2018.2\config\idea%BITS%.exe.jdk
+SET USER_JDK64_FILE=%USERPROFILE%\.IntelliJIdea2018.3\config\idea%BITS%.exe.jdk
 SET BITS=
-SET USER_JDK_FILE=%USERPROFILE%\.IntelliJIdea2018.2\config\idea%BITS%.exe.jdk
+SET USER_JDK_FILE=%USERPROFILE%\.IntelliJIdea2018.3\config\idea%BITS%.exe.jdk
 IF EXIST "%USER_JDK64_FILE%" (
   SET /P JDK=<%USER_JDK64_FILE%
 ) ELSE (
@@ -71,7 +71,7 @@ IF NOT EXIST "%VM_OPTIONS_FILE%" (
 )
 IF NOT EXIST "%VM_OPTIONS_FILE%" (
   :: user-overridden
-  SET VM_OPTIONS_FILE=%USERPROFILE%\.IntelliJIdea2018.2\config\idea%BITS%.exe.vmoptions
+  SET VM_OPTIONS_FILE=%USERPROFILE%\.IntelliJIdea2018.3\config\idea%BITS%.exe.vmoptions
 )
 IF NOT EXIST "%VM_OPTIONS_FILE%" (
   :: default, standard installation
@@ -89,7 +89,7 @@ SET ACC=
 FOR /F "eol=# usebackq delims=" %%i IN ("%VM_OPTIONS_FILE%") DO CALL "%IDE_BIN_DIR%\append.bat" "%%i"
 IF EXIST "%VM_OPTIONS_FILE%" SET ACC=%ACC% -Djb.vmOptionsFile="%VM_OPTIONS_FILE%"
 
-SET COMMON_JVM_ARGS="-XX:ErrorFile=%USERPROFILE%\java_error_in_IDEA_%%p.log" "-XX:HeapDumpPath=%USERPROFILE%\java_error_in_IDEA.hprof" -Didea.paths.selector=IntelliJIdea2018.2 %IDE_PROPERTIES_PROPERTY%
+SET COMMON_JVM_ARGS="-XX:ErrorFile=%USERPROFILE%\java_error_in_IDEA_%%p.log" "-XX:HeapDumpPath=%USERPROFILE%\java_error_in_IDEA.hprof" -Didea.paths.selector=IntelliJIdea2018.3 %IDE_PROPERTIES_PROPERTY%
 SET IDE_JVM_ARGS=-Didea.jre.check=true
 SET ALL_JVM_ARGS=%ACC% %COMMON_JVM_ARGS% %IDE_JVM_ARGS%
 
